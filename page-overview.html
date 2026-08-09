@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - amithmojgenie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#0d1117',
+                        bgDarker: '#010409',
+                        borderDark: '#30363d',
+                        textPrimary: '#c9d1d9',
+                        textSecondary: '#8b949e',
+                        accentBlue: '#58a6ff',
+                        btnBg: '#21262d',
+                        btnHover: '#30363d',
+                        heatmapEmpty: '#161b22',
+                        heatmapLight: '#0e4429',
+                        heatmapMed: '#006d32',
+                        heatmapDark: '#26a641',
+                        heatmapDarkest: '#39d353',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        }
+        /* Custom scrollbar for better appearance */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-sm">
+
+    <header class="bg-bgDarker border-b border-borderDark pt-3 sticky top-0 z-20">
+        
+        <div class="flex items-center justify-between px-4 pb-4">
+            <div class="flex items-center gap-4">
+                <button class="p-1 border border-borderDark rounded-md hover:bg-btnBg text-textSecondary">
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path></svg>
+                </button>
+                <a href="#" class="text-white hover:text-gray-300">
+                    <svg height="32" viewBox="0 0 16 16" version="1.1" width="32" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                </a>
+                <span class="text-white font-semibold ml-1">amithmojgenie</span>
+            </div>
+            <div class="flex items-center">
+                <img src="https://avatars.githubusercontent.com/u/102154967?v=4" alt="Avatar" class="w-8 h-8 rounded-full border border-borderDark">
+            </div>
+        </div>
+
+        <div class="px-4 flex gap-6 text-textSecondary text-sm">
+            <a href="#" class="flex items-center gap-2 pb-3 border-b-2 border-[#f78166] text-textPrimary font-semibold">
+                <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.003 1h4.253c.414 0 .75.336.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z"></path></svg>
+                Overview
+            </a>
+            <a href="#" class="flex items-center gap-2 pb-3 hover:text-textPrimary hover:border-b-2 hover:border-borderDark border-b-2 border-transparent transition-colors">
+                <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+                Books
+                <span class="bg-btnBg text-textPrimary rounded-full px-2 py-0.5 text-xs font-semibold">12</span>
+            </a>
+            <a href="#" class="flex items-center gap-2 pb-3 hover:text-textPrimary hover:border-b-2 hover:border-borderDark border-b-2 border-transparent transition-colors">
+                <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0114.25 15H1.75A1.75 1.75 0 010 13.25V2.75zm1.75-.25a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V2.75a.25.25 0 00-.25-.25H1.75zM4.5 4A.75.75 0 003.75 4.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 004.5 4zm4 0a.75.75 0 00-.75.75v5.5a.75.75 0 001.5 0v-5.5A.75.75 0 008.5 4zm4 0a.75.75 0 00-.75.75v2a.75.75 0 001.5 0v-2A.75.75 0 0012.5 4z"></path></svg>
+                Your Activity
+            </a>
+        </div>
+    </header>
+
+    <div class="max-w-[1280px] mx-auto px-4 pt-8 flex flex-col md:flex-row gap-8">
+        
+        <div class="w-full md:w-1/4 flex-shrink-0">
+            <div class="relative inline-block mb-4">
+                <img src="https://avatars.githubusercontent.com/u/102154967?v=4" alt="amithmojgenie profile" class="w-64 h-64 rounded-full border border-borderDark object-cover bg-white">
+                
+                <div class="absolute bottom-6 right-2 bg-bgDark border border-borderDark rounded-full p-2 flex items-center justify-center">
+                    <svg class="text-textSecondary" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                        <path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.122.956c-.156.183-.346.353-.564.5-31.428.286-.96.533-1.636.533-.676 0-1.208-.247-1.636-.533-.218-.147-.408-.317-.564-.5a.75.75 0 01.175-1.038z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <h1 class="text-2xl text-textSecondary font-light mb-4">amithmojgenie</h1>
+            
+            <button class="w-full bg-btnBg hover:bg-btnHover border border-borderDark text-textPrimary py-1.5 rounded-md font-semibold transition-colors mb-6">
+                Edit profile
+            </button>
+        </div>
+
+        <div class="w-full md:w-3/4 flex flex-col gap-6">
+            
+            <div>
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-base text-textPrimary">Your Books</h2>
+                    <a href="#" class="text-accentBlue text-xs hover:underline">View All</a>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="border border-borderDark rounded-md p-4 flex flex-col justify-between min-h-[90px]">
+                        <div class="flex justify-between items-start gap-2">
+                            <a href="#" class="text-accentBlue font-semibold text-sm hover:underline leading-tight">How to win friend and influence people</a>
+                            <span class="text-xs text-textSecondary border border-borderDark rounded-full px-2 py-0.5 whitespace-nowrap">Reading</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-4">
+                            <span class="w-2 h-2 rounded-full bg-[#da3633]"></span>
+                            <span class="text-xs text-textSecondary">Last Updated : 5 minutes ago</span>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-borderDark rounded-md p-4 flex flex-col justify-between min-h-[90px]">
+                        <div class="flex justify-between items-start gap-2">
+                            <a href="#" class="text-accentBlue font-semibold text-sm hover:underline leading-tight">The 48 Laws Of Power</a>
+                            <span class="text-xs text-textSecondary border border-borderDark rounded-full px-2 py-0.5 whitespace-nowrap">Completed</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-4">
+                            <span class="w-2 h-2 rounded-full bg-[#da3633]"></span>
+                            <span class="text-xs text-textSecondary">Last Updated : 10 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-base text-textPrimary mb-3">Yours Activity</h2>
+                <div class="flex flex-col md:flex-row gap-4 items-start">
+                    <div class="flex-1 w-full border border-borderDark rounded-md p-5 pb-3 overflow-x-auto">
+                        <div class="min-w-[650px]">
+                            <div class="flex text-xs text-textSecondary mb-1 gap-2">
+                                <div class="w-8"></div> <div class="flex justify-between flex-1 pr-2">
+                                    <span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="flex flex-col text-[10px] text-textSecondary gap-[13px] pt-1">
+                                    <span>Mon</span>
+                                    <span>Wed</span>
+                                    <span>Fri</span>
+                                </div>
+                                
+                                <div id="heatmap" class="grid grid-rows-7 grid-flow-col gap-[3px]">
+                                    </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center mt-3 text-xs text-textSecondary">
+                                <a href="#" class="hover:text-accentBlue">Learn how we count contributions</a>
+                                <div class="flex items-center gap-1">
+                                    <span>Less</span>
+                                    <div class="w-[10px] h-[10px] rounded-[2px] bg-heatmapEmpty"></div>
+                                    <div class="w-[10px] h-[10px] rounded-[2px] bg-heatmapLight"></div>
+                                    <div class="w-[10px] h-[10px] rounded-[2px] bg-heatmapMed"></div>
+                                    <div class="w-[10px] h-[10px] rounded-[2px] bg-heatmapDark"></div>
+                                    <div class="w-[10px] h-[10px] rounded-[2px] bg-heatmapDarkest"></div>
+                                    <span>More</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-24 flex flex-row md:flex-col gap-2">
+                        <button class="bg-[#1f6feb] text-white py-1.5 px-4 rounded-md text-sm text-center md:text-left">2026</button>
+                        <button class="text-textSecondary py-1.5 px-4 rounded-md text-sm text-center md:text-left hover:bg-btnBg transition-colors">2025</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <h2 class="text-base text-textPrimary mb-3">Recent Activity</h2>
+                <div class="border-t border-borderDark pt-6 relative">
+                    
+                    <div class="absolute left-4 top-14 bottom-14 w-[1px] bg-borderDark z-0"></div>
+
+                    <div class="text-xs text-textSecondary mb-6 ml-1 bg-bgDark inline-block relative z-10 pr-2">
+                        September 17, 2025
+                    </div>
+
+                    <div class="relative z-10 flex gap-4 mb-6">
+                        <div class="w-8 h-8 rounded-full bg-btnBg border border-borderDark flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="text-textSecondary"><path fill-rule="evenodd" d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0114.25 15H1.75A1.75 1.75 0 010 13.25V2.75zM1.75 2.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V2.75a.25.25 0 00-.25-.25H1.75zM6 4h4v1H6V4zm0 2h4v1H6V6zm0 2h4v1H6V8zm-2-4h1v1H4V4zm0 2h1v1H4V6zm0 2h1v1H4V8z"></path></svg>
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-textPrimary text-sm font-semibold mb-1 mt-1.5">
+                                Its a good day to read
+                            </div>
+                            <div class="text-xs text-textSecondary">
+                                1 Completed 5 pages today
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="w-full border border-borderDark hover:bg-btnBg text-accentBlue py-2 rounded-md font-semibold text-sm transition-colors mb-6 bg-bgDark relative z-10">
+                        Show more activity
+                    </button>
+                    
+                    <div class="text-xs text-textSecondary text-left relative z-10 bg-bgDark pb-8">
+                        Seeing something unexpected? Contact Us <a href="mailto:support@gmail.com" class="text-accentBlue hover:underline">support@gmail.com</a>.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const heatmap = document.getElementById('heatmap');
+            const totalWeeks = 53;
+            const daysPerWeek = 7;
+            
+            // Create the grid squares
+            for (let i = 0; i < totalWeeks * daysPerWeek; i++) {
+                const square = document.createElement('div');
+                square.className = 'w-[10px] h-[10px] rounded-[2px] bg-heatmapEmpty outline outline-1 outline-offset-[-1px] outline-[rgba(27,31,35,0.06)]';
+                
+                // Add specific clusters to mimic the image pattern
+                // The image shows activity concentrated in Sep/Oct columns (roughly weeks 5 to 10)
+                const weekIndex = Math.floor(i / daysPerWeek);
+                
+                if (weekIndex > 4 && weekIndex < 11) {
+                    const rand = Math.random();
+                    if (rand > 0.8) {
+                        square.classList.replace('bg-heatmapEmpty', 'bg-heatmapDark');
+                    } else if (rand > 0.6) {
+                        square.classList.replace('bg-heatmapEmpty', 'bg-heatmapDarkest');
+                    } else if (rand > 0.4) {
+                        square.classList.replace('bg-heatmapEmpty', 'bg-heatmapMed');
+                    } else if (rand > 0.2) {
+                        square.classList.replace('bg-heatmapEmpty', 'bg-heatmapLight');
+                    }
+                }
+                
+                // Add sporadic activity elsewhere
+                if (Math.random() > 0.98) {
+                    square.classList.replace('bg-heatmapEmpty', 'bg-heatmapLight');
+                }
+                
+                heatmap.appendChild(square);
+            }
+        });
+    </script>
+</body>
+</html>
